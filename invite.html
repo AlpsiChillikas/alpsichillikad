@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ALPSI CHILLI ÕHTU PELAKAD!</title>
+        <link href="invitestyle.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="video-background">
+            <iframe 
+                src="https://www.youtube.com/embed/IiuqUfJTtYY?autoplay=1&mute=1&loop=1&playlist=IiuqUfJTtYY&controls=0&showinfo=0&modestbranding=1&rel=0" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+        </div>             
+        <div class="video-overlay"></div>
+        <div class="header">
+            <h2 class="title">ALPSI CHILLI ÕHTU PELAKAD!</h2>
+            <div class="nav-buttons">
+                <button>Meie Team</button>
+                <button>Pelaka Kalender</button>
+                <button>Invite</button>
+                <button>ESPORTS</button>
+                <button>Meie Saavutused</button>
+            </div>
+        </div>
+        <div class="box">
+            <input type="email" id="email" class="input-box" placeholder="Teie Email" required  />
+            <textarea class="textarea-box" id="textarea" placeholder="Palun kirjutage 500 sõnaline essee, miks just teie peaksite saama alpsi pelaka õhtule..."oninput="checkWordCount()"></textarea>
+            <button class="button" id="submitButton" disabled>Esita</button>
+        </div>
+        <script>
+            function checkWordCount() {
+            const textarea = document.getElementById('textarea');
+            const wordCount = textarea.value.trim().split(/\s+/).length;
+
+            const submitButton = document.getElementById('submitButton');
+            if (wordCount >= 500) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+        </script>
+    </body>
+</html>
