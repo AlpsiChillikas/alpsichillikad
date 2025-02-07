@@ -70,5 +70,11 @@
                 <p>Hours Played: 43</p>
             </div>
         </div>
+        <script>
+          let path = window.location.pathname;
+          if (path.endsWith(".html")) {
+             window.location.href = path.replace(".html", "");
+          }
+        </script>
     </body>
 </html>
