@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach((button, index) => {
         button.addEventListener("click", function () {
-            window.location.href = window.location.origin + urls[index];
+            const basePath = window.location.pathname.split("/").slice(0, 2).join("/");
+            window.location.href = window.location.origin + basePath + urls[index];
         });
     });
 });
