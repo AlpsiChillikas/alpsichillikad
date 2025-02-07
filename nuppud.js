@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll("button");
-    const urls = ["/alpsichillikad/team", "/alpsichillikad/kalender", "/alpsichillikad/invite", "/alpsichillikad/esport", "/alpsichillikad/meiesaavutused"];
+    const urls = ["/team", "/kalender", "/invite", "/esport", "/meiesaavutused"];
 
-    button.addEventListener("click", function () {
-        window.location.href = window.location.origin + urls[index];
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+            window.location.href = window.location.origin + urls[index];
+        });
     });
 });
