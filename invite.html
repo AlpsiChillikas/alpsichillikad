@@ -32,17 +32,37 @@
             <button class="button" id="submitButton" disabled>Esita</button>
         </div>
         <script>
-            function checkWordCount() {
-            const textarea = document.getElementById('textarea');
-            const wordCount = textarea.value.trim().split(/\s+/).length;
-
-            const submitButton = document.getElementById('submitButton');
-            if (wordCount >= 500) {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
+            function checkForm() {
+                const textarea = document.getElementById('textarea');
+                const email = document.getElementById('email');
+                const submitButton = document.getElementById('submitButton');
+                const wordCount = textarea.value.trim().split(/\s+/).length;
+                
+                const emailValid = email.value.trim() !== "" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+        
+                submitButton.disabled = !(wordCount >= 500 && emailValid);
             }
-        }
+        
+            document.getElementById('submitButton').addEventListener('click', function() {
+                document.getElementById('email').value = '';
+                document.getElementById('textarea').value = '';
+        
+                const message = document.createElement('p');
+                message.textContent = "Teie toiming liituda on saadetud, jälgige oma Emaili.";
+                message.style.color = "green";
+                message.style.fontSize = "18px";
+                message.style.fontWeight = "bold";
+                message.style.textAlign = "center";
+                message.style.marginTop = "10px";
+        
+                document.querySelector('.box').appendChild(message);
+        
+                document.getElementById('submitButton').disabled = true;
+            });
+        
+            document.getElementById('email').addEventListener('input', checkForm);
+            document.getElementById('textarea').addEventListener('input', checkForm);
         </script>
+        
     </body>
 </html>
